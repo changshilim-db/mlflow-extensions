@@ -356,7 +356,7 @@ class EngineProcess(abc.ABC):
                 "Not enough shared memory for NCCL. Setting NCCL_SHM_DISABLE=1"
             )
 
-        server_details["NCCL_P2P_DISABLE"] = "1"
+        LOGGER.warning("Disabling NCCL")
         server_details["NCCL_SHM_DISABLE"] = "1"
         proc_env.update(server_details)
         command = self.config.to_run_command(context)
